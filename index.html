@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriHorizon | Cultivons ensemble un avenir vert</title>
+    <meta name="description" content="AgriHorizon - Expertise agricole au Sénégal : installation et suivi de cultures maraîchères, aménagement de vergers et espaces verts, conseil, fertilisation et encadrement technique.">
+    
+    <!-- Google Fonts : Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        agri: {
+                            dark: '#1B5E20',      // Vert forêt profond
+                            primary: '#2E7D32',   // Vert feuille
+                            light: '#E8F5E9',     // Vert tendre
+                            accent: '#F59E0B',    // Jaune soleil doré
+                            bg: '#FAFAF9',        // Fond blanc cassé
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(27, 94, 32, 0.08)',
+                        'card': '0 4px 20px -2px rgba(27, 94, 32, 0.06)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Animations douces au défilement */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Motif organique subtil */
+        .hero-pattern {
+            background-color: #FAFAF9;
+            background-image: radial-gradient(#2E7D3214 1.5px, transparent 1.5px), radial-gradient(#F59E0B14 1.5px, #FAFAF9 1.5px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+        }
+    </style>
+</head>
+<body class="bg-agri-bg text-slate-800 antialiased selection:bg-agri-primary selection:text-white overflow-x-hidden">
+
+    <!-- =====================================================================
+         1. BARRE DE NAVIGATION FIXE
+    ====================================================================== -->
+    <header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-emerald-900/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo SVG AgriHorizon (Feuilles + Soleil levant) -->
+                <a href="#accueil" class="flex items-center gap-3 group focus:outline-none">
+                    <div class="w-11 h-11 rounded-2xl bg-agri-light flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform">
+                        <svg viewBox="0 0 64 64" class="w-9 h-9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Soleil levant -->
+                            <circle cx="42" cy="24" r="9" fill="#F59E0B"/>
+                            <path d="M42 10V13M52 14L49.8 16.2M56 24H53M32 14L34.2 16.2" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round"/>
+                            <!-- Feuilles principales -->
+                            <path d="M27 33C27 21 17 13 9 13C9 23 16 33 27 33Z" fill="#1B5E20"/>
+                            <path d="M28 33C28 22 36 15 44 15C44 24 37 33 28 33Z" fill="#2E7D32"/>
+                            <!-- Sillons de terre / Horizon -->
+                            <path d="M10 43C22 36 42 36 54 43" stroke="#1B5E20" stroke-width="3.5" stroke-linecap="round"/>
+                            <path d="M16 50C26 45 38 45 48 50" stroke="#2E7D32" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="font-display font-extrabold text-xl sm:text-2xl tracking-tight text-agri-dark">Agri<span class="text-agri-primary">Horizon</span></span>
+                        <span class="block text-[11px] font-medium text-slate-500 -mt-1 hidden sm:block">Cultivons ensemble un avenir vert</span>
+                    </div>
+                </a>
+
+                <!-- Liens de navigation Desktop -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="#accueil" class="text-sm font-semibold text-slate-700 hover:text-agri-primary transition-colors">Accueil</a>
+                    <a href="#apropos" class="text-sm font-semibold text-slate-700 hover:text-agri-primary transition-colors">À propos</a>
+                    <a href="#services" class="text-sm font-semibold text-slate-700 hover:text-agri-primary transition-colors">Nos Services</a>
+                    <a href="#valeurs" class="text-sm font-semibold text-slate-700 hover:text-agri-primary transition-colors">Valeurs</a>
+                    <a href="#contact" class="text-sm font-semibold text-slate-700 hover:text-agri-primary transition-colors">Contact</a>
+                </nav>
+
+                <!-- Bouton d'appel direct / WhatsApp Desktop -->
+                <div class="hidden md:flex items-center gap-3">
+                    <a href="tel:+221767700631" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-agri-light text-agri-dark font-semibold text-sm hover:bg-emerald-100 transition-colors">
+                        <i data-lucide="phone" class="w-4 h-4 text-agri-primary"></i>
+                        <span>76 770 06 31</span>
+                    </a>
+                    <a href="https://wa.me/221767700631?text=Bonjour%20AgriHorizon%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20vos%20services%20agricoles." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-agri-dark text-white font-semibold text-sm shadow-sm hover:bg-agri-primary transition-all">
+                        <i data-lucide="message-circle" class="w-4 h-4 text-agri-accent"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                </div>
+
+                <!-- Bouton Menu Mobile -->
+                <button id="mobile-menu-btn" aria-label="Ouvrir le menu" class="md:hidden p-2.5 rounded-xl bg-agri-light text-agri-dark hover:bg-emerald-100 transition-colors">
+                    <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menu Mobile Déroulant -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-emerald-900/10 px-4 pt-2 pb-6 space-y-2 shadow-lg">
+            <a href="#accueil" class="mobile-link block px-4 py-3 rounded-xl text-base font-semibold text-slate-700 hover:bg-agri-light hover:text-agri-dark">Accueil</a>
+            <a href="#apropos" class="mobile-link block px-4 py-3 rounded-xl text-base font-semibold text-slate-700 hover:bg-agri-light hover:text-agri-dark">À propos</a>
+            <a href="#services" class="mobile-link block px-4 py-3 rounded-xl text-base font-semibold text-slate-700 hover:bg-agri-light hover:text-agri-dark">Nos Services</a>
+            <a href="#valeurs" class="mobile-link block px-4 py-3 rounded-xl text-base font-semibold text-slate-700 hover:bg-agri-light hover:text-agri-dark">Nos Valeurs</a>
+            <a href="#contact" class="mobile-link block px-4 py-3 rounded-xl text-base font-semibold text-slate-700 hover:bg-agri-light hover:text-agri-dark">Contact & Devis</a>
+            <div class="pt-3 grid grid-cols-2 gap-3">
+                <a href="tel:+221767700631" class="flex items-center justify-center gap-2 py-3 rounded-xl bg-agri-light text-agri-dark font-bold text-sm">
+                    <i data-lucide="phone" class="w-4 h-4"></i> Appeler
+                </a>
+                <a href="https://wa.me/221767700631" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 py-3 rounded-xl bg-agri-dark text-white font-bold text-sm">
+                    <i data-lucide="message-circle" class="w-4 h-4 text-agri-accent"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- =====================================================================
+         2. SECTION HÉRO
+    ====================================================================== -->
+    <section id="accueil" class="relative pt-28 pb-16 lg:pt-36 lg:pb-24 hero-pattern overflow-hidden">
+        <!-- Halos décoratifs -->
+        <div class="absolute top-20 right-0 w-96 h-96 bg-agri-primary/10 rounded-full blur-3xl -z-10"></div>
+        <div class="absolute bottom-0 left-0 w-80 h-80 bg-agri-accent/10 rounded-full blur-3xl -z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Colonne Texte -->
+                <div class="lg:col-span-7 space-y-6 reveal active">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-agri-light border border-agri-primary/20 text-agri-dark text-xs sm:text-sm font-semibold">
+                        <span class="w-2 h-2 rounded-full bg-agri-accent animate-pulse"></span>
+                        <span>Expertise & Accompagnement Agricole au Sénégal</span>
+                    </div>
+
+                    <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-slate-900 leading-[1.12] tracking-tight">
+                        Cultivons ensemble <span class="text-agri-primary relative inline-block">un avenir vert
+                            <svg class="absolute -bottom-2 left-0 w-full h-3 text-agri-accent/60" viewBox="0 0 200 12" fill="none">
+                                <path d="M2 9C60 2 140 2 198 9" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                    </h1>
+
+                    <p class="text-lg sm:text-xl font-medium text-agri-dark/90 italic">
+                        « Ensemble, cultivons aujourd'hui les récoltes de demain ! »
+                    </p>
+
+                    <p class="text-base sm:text-lg text-slate-600 max-w-2xl leading-relaxed">
+                        De l'installation de cultures maraîchères à l'aménagement de vergers et d'espaces verts, <strong>AgriHorizon</strong> vous accompagne sur le terrain avec des solutions techniques modernes, durables et rentables.
+                    </p>
+
+                    <!-- Boutons d'action -->
+                    <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                        <a href="#contact" class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl bg-agri-dark text-white font-bold text-base shadow-lg shadow-agri-dark/20 hover:bg-agri-primary hover:-translate-y-0.5 transition-all">
+                            <span>Demander un devis gratuit</span>
+                            <i data-lucide="arrow-right" class="w-5 h-5 text-agri-accent"></i>
+                        </a>
+                        <a href="#services" class="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-2xl bg-white text-agri-dark border-2 border-agri-dark/15 font-bold text-base hover:border-agri-primary hover:bg-agri-light/50 transition-all">
+                            <span>Découvrir nos services</span>
+                        </a>
+                    </div>
+
+                    <!-- Statistiques clés -->
+                    <div class="grid grid-cols-3 gap-4 pt-8 border-t border-slate-200/80">
+                        <div>
+                            <p class="font-display font-extrabold text-2xl sm:text-3xl text-agri-dark">100%</p>
+                            <p class="text-xs sm:text-sm text-slate-600 font-medium mt-0.5">Accompagnement terrain personnalisé</p>
+                        </div>
+                        <div>
+                            <p class="font-display font-extrabold text-2xl sm:text-3xl text-agri-primary">+40%</p>
+                            <p class="text-xs sm:text-sm text-slate-600 font-medium mt-0.5">Optimisation des rendements durables</p>
+                        </div>
+                        <div>
+                            <p class="font-display font-extrabold text-2xl sm:text-3xl text-agri-accent">6 Pôles</p>
+                            <p class="text-xs sm:text-sm text-slate-600 font-medium mt-0.5">D'expertise & suivi technique agricole</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Colonne Visuelle (Composition inspirée de l'affiche) -->
+                <div class="lg:col-span-5 reveal">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <!-- Cadre principal -->
+                        <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-agri-light aspect-[4/5]">
+                            <img 
+                                src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=900&q=80" 
+                                alt="Cultures maraîchères et récoltes fraîches AgriHorizon" 
+                                class="w-full h-full object-cover"
+                                onerror="this.src='https://placehold.co/800x1000/1B5E20/FFFFFF?text=AgriHorizon+S%C3%A9n%C3%A9gal'"
+                            >
+                            <div class="absolute inset-0 bg-gradient-to-t from-agri-dark/85 via-agri-dark/20 to-transparent"></div>
+                            
+                            <!-- Encart bas de carte -->
+                            <div class="absolute bottom-6 left-6 right-6 text-white space-y-2">
+                                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-agri-accent text-slate-900 font-bold text-xs">
+                                    <i data-lucide="sprout" class="w-3.5 h-3.5"></i>
+                                    <span>Production & Conseil</span>
+                                </div>
+                                <p class="font-display font-bold text-xl leading-snug">
+                                    Des récoltes saines et abondantes grâce à un encadrement rigoureux.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Badge flottant Contact Direct -->
+                        <div class="hidden sm:flex items-center gap-3.5 absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-soft border border-emerald-900/10">
+                            <div class="w-12 h-12 rounded-xl bg-agri-accent/20 text-agri-dark flex items-center justify-center">
+                                <i data-lucide="phone-call" class="w-6 h-6 text-agri-dark"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Ligne Directe</p>
+                                <a href="tel:+221767700631" class="font-display font-extrabold text-lg text-agri-dark hover:text-agri-primary">76 770 06 31</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         3. SECTION À PROPOS
+    ====================================================================== -->
+    <section id="apropos" class="py-16 lg:py-24 bg-white border-y border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center reveal">
+                <div class="space-y-6">
+                    <span class="inline-block px-3.5 py-1.5 rounded-full bg-agri-light text-agri-dark font-bold text-xs uppercase tracking-wider">
+                        Qui sommes-nous ?
+                    </span>
+                    <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 leading-tight">
+                        Votre partenaire de confiance pour une agriculture performante et durable
+                    </h2>
+                    <p class="text-slate-600 text-base sm:text-lg leading-relaxed">
+                        <strong>AgriHorizon</strong> accompagne les producteurs, porteurs de projets agropastoraux, collectivités et particuliers à travers tout le Sénégal dans la conception, la mise en œuvre et la rentabilisation de leurs exploitations.
+                    </p>
+                    <p class="text-slate-600 text-base leading-relaxed">
+                        Notre approche allie savoir-faire agronomique de terrain, gestion raisonnée des intrants et suivi technique régulier pour transformer chaque parcelle en un modèle de productivité respectueux de l'environnement.
+                    </p>
+
+                    <div class="grid sm:grid-cols-2 gap-4 pt-2">
+                        <div class="flex items-start gap-3 p-4 rounded-2xl bg-agri-bg border border-slate-200/60">
+                            <i data-lucide="check-circle-2" class="w-6 h-6 text-agri-primary shrink-0 mt-0.5"></i>
+                            <div>
+                                <h3 class="font-display font-bold text-slate-900 text-sm">Approche sur-mesure</h3>
+                                <p class="text-xs text-slate-600 mt-1">Diagnostic précis de vos sols, ressources en eau et objectifs.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 p-4 rounded-2xl bg-agri-bg border border-slate-200/60">
+                            <i data-lucide="check-circle-2" class="w-6 h-6 text-agri-primary shrink-0 mt-0.5"></i>
+                            <div>
+                                <h3 class="font-display font-bold text-slate-900 text-sm">Présence sur le terrain</h3>
+                                <p class="text-xs text-slate-600 mt-1">Visites régulières et formation continue de vos équipes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Encart citation / engagement -->
+                <div class="bg-gradient-to-br from-agri-dark to-agri-primary rounded-3xl p-8 sm:p-10 text-white shadow-xl relative overflow-hidden">
+                    <div class="absolute -right-10 -bottom-10 opacity-10">
+                        <i data-lucide="sun" class="w-56 h-56"></i>
+                    </div>
+                    <div class="relative z-10 space-y-6">
+                        <div class="w-14 h-14 rounded-2xl bg-white/15 backdrop-blur-sm flex items-center justify-center">
+                            <i data-lucide="leaf" class="w-7 h-7 text-agri-accent"></i>
+                        </div>
+                        <blockquote class="font-display font-bold text-2xl sm:text-3xl leading-snug">
+                            « Ensemble, cultivons aujourd'hui les récoltes de demain ! »
+                        </blockquote>
+                        <p class="text-emerald-100 text-sm sm:text-base leading-relaxed">
+             
